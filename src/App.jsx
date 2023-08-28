@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Route, Switch,Redirect } from 'react-router-dom';
+import React from 'react';
+import { Route, Routes,Navigate} from 'react-router-dom';
 
 import Signup from './components/Signup'
 import Login from './components/Login'
@@ -7,11 +7,11 @@ function App() {
 
    return (
       <>
-         <Switch>
-            <Route path='/signup' component={Signup}></Route>
-            <Route path='/login' component={Login}></Route>
-            <Redirect from='/' to='/signup'></Redirect>
-         </Switch>
+         <Routes>
+            <Route path='/signup' element={<Signup/>}></Route>
+            <Route path='/login' element={<Login/>}></Route>
+            <Route path='/' element={<Navigate to="/signup"/>}></Route>
+         </Routes>
       </>
    )
 }
