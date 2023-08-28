@@ -27,11 +27,24 @@ const Signup = () => {
      }else{
      setData({...data, [event.target.name]:event.target.value})
      }
-     console.log(data);
+   }
+
+   const submitHandler=(event)=>{
+        event.preventDefault();
+        if (!Object.keys(errors).length) {
+         
+        }else{
+         setTouched({name:true,
+         email: true,
+      password:true,
+      confirmPassword:true, 
+      isAccepted:true
+   })
+        }
    }
    return (
       <div>
-         <form>
+         <form onSubmit={submitHandler}>
             <h2>Sign Up</h2>
             <div>
                <label>Name</label>
